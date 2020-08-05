@@ -1,0 +1,32 @@
+<script src="//cdn.bootcss.com/flv.js/1.5.0/flv.js"></script>
+<video id="videoElement" width="1850"></video>
+<script>
+    if (flvjs.isSupported()) {
+        var video = videoElement = document.getElementById('videoElement');
+        var flvPlayer = flvjs.createPlayer({
+            type: 'flv',
+            isLive: true,
+            url: 'ws://' + location.search.slice(1),
+        }, {
+            enableStashBuffer: false
+        });
+        flvPlayer.attachMediaElement(videoElement);
+        flvPlayer.load();
+
+
+        setTimeout(() => {
+            flvPlayer.play();
+        }, 2000)
+
+        setInterval(() => {
+            if (!video.buffered.length) {
+                return;
+            }
+            let end = video.buffered.end(0);
+            let diff = end - video.currentTime;
+            if (diff >= 1.5) {
+                video.currentTime = end;
+            }
+        }, 3000);
+    }
+</script>

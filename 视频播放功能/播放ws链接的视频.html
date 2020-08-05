@@ -1,0 +1,21 @@
+<html><head>
+    <title>Live</title>
+    <style type="text/css">
+        html, body {
+            background-color: #111;
+            text-align: center;
+        }
+    </style>
+
+</head>
+<body style="">
+<canvas id="video-canvas" width="1366" height="768"></canvas>
+<script type="text/javascript" src="jsmpeg.min.js"></script>
+<script type="text/javascript">
+    var canvas = document.getElementById('video-canvas');
+    var url = 'ws://47.98.195.18:10022/';
+    var player = new JSMpeg.Player(url, {canvas: canvas});
+</script>
+
+
+</body></html>
