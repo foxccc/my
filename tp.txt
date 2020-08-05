@@ -1,0 +1,15 @@
+
+tp6
+
+1、把app下文件删除
+
+2、切换到tp目录下
+命令行新建admin应用和api应用
+php think make:controller admin@index
+
+访问去掉index.php在后面加个?
+
+复制.env添加debug
+
+安装多应用模式扩展
+composer require topthink/think-multi-app
