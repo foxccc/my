@@ -1,0 +1,29 @@
+策略模式：
+第一步：定义抽象策略接口
+第二步：具体策略类---------比如到某个地方可以有多种交通工具到达
+第三步：环境类实现---------调用接口，设置出行策略
+
+
+工厂模式：
+简单工厂
+Phone类：手机标准规范类(AbstractProduct)
+MiPhone类：制造小米手机（Product1）
+IPhone类：制造苹果手机（Product2）
+PhoneFactory类：手机代工厂（Factory） 判断要制作哪个手机进行调用
+
+工厂方法模式
+手机代工厂不直接生产，而交给具体生产哪种手机的工厂生产
+AbstractFactory类：生产不同产品的工厂的抽象类
+XiaoMiFactory类：生产小米手机的工厂（ConcreteFactory1）
+AppleFactory类：生产苹果手机的工厂（ConcreteFactory2）
+
+抽象工厂模式
+抽象工厂模式通过在AbstarctFactory中增加创建产品的接口，并在具体子工厂中实现新加产品的创建，
+当然前提是子工厂支持生产该产品。否则继承的这个接口可以什么也不干。
+AbstractFactory类：增加PC产品制造接口
+public interface AbstractFactory {
+    Phone makePhone();
+    PC makePC();
+}
+
+此外无论哪种模式，由于可能封装了大量对象和工厂创建，新加产品需要修改已定义好的工厂相关的类，因此对于产品和工厂的扩展不太友好，利弊需要权衡一下。 
